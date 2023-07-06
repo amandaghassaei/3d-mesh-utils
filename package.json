@@ -44,6 +44,7 @@
     "chai": "^4.3.7",
     "coverage-badge-creator": "^1.0.17",
     "mocha": "^10.1.0",
+    "msh-parser": "^1.2.10",
     "rollup": "^3.6.0",
     "ts-node": "^10.9.1",
     "tslib": "^2.4.1",
