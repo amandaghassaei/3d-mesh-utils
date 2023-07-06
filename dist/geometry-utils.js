@@ -1,3 +1,4 @@
+import { makeEdgeHash } from './index-utils';
 /**
  * Returns the bounding box of the mesh.
  */
@@ -34,7 +35,7 @@ export function calcEdgesFromNestedIndexedFaces(mesh) {
         for (let j = 0; j < numVertices; j++) {
             const index1 = face[j];
             const index2 = face[(j + 1) % numVertices];
-            const key = `${Math.min(index1, index2)},${Math.max(index1, index2)}`;
+            const key = makeEdgeHash(index1, index2);
             // Only add each edge once.
             if (edgesHash[key] === undefined) {
                 edgesHash[key] = true;
@@ -60,7 +61,7 @@ export function calcEdgesFromIndexedFaces(mesh) {
         for (let j = 0; j < 3; j++) {
             const index1 = faceIndices[3 * i + j];
             const index2 = faceIndices[3 * i + (j + 1) % 3];
-            const key = `${Math.min(index1, index2)},${Math.max(index1, index2)}`;
+            const key = makeEdgeHash(index1, index2);
             // Only add each edge once.
             if (edgesHash[key] === undefined) {
                 edgesHash[key] = true;
