@@ -17,21 +17,23 @@ export function calcBoundingBox(mesh) {
     return { min, max };
 }
 /**
- * Returns the edges in the stl data (without duplicates).
+ * Returns the edges in the mesh data (without duplicates).
  * Assumes mesh contains indexed faces.
- * Assumes triangle faces.
+ * Vertices are grouped into faces of any size: [[f01, f0b, f0c], [f1a, f1b, f1c, f1d], ...]
  */
-export function calcEdgesFromIndexedFaces(mesh) {
-    const { faceIndices } = mesh;
+export function calcEdgesFromNestedIndexedFaces(mesh) {
+    const { faces } = mesh;
     // Handle edges on indexed faces.
-    const numFaces = faceIndices.length / 3;
+    const numFaces = faces.length;
     // Use hash to calc edges.
     const edgesHash = {};
     const edges = [];
     for (let i = 0; i < numFaces; i++) {
-        for (let j = 0; j < 3; j++) {
-            const index1 = faceIndices[3 * i + j];
-            const index2 = faceIndices[3 * i + (j + 1) % 3];
+        const face = faces[i];
+        const numVertices = face.length;
+        for (let j = 0; j < numVertices; j++) {
+            const index1 = face[j];
+            const index2 = face[(j + 1) % numVertices];
             const key = `${Math.min(index1, index2)},${Math.max(index1, index2)}`;
             // Only add each edge once.
             if (edgesHash[key] === undefined) {
@@ -43,7 +45,33 @@ export function calcEdgesFromIndexedFaces(mesh) {
     return edges;
 }
 /**
- * Returns the edges in the stl data (without duplicates).
+ * Returns the edges in the mesh data (without duplicates).
+ * Assumes mesh contains indexed faces.
+ * Assumes flat list of triangle faces: [f0a, f0b, f0c, f1a, f1b, f1c, ...]
+ */
+export function calcEdgesFromIndexedFaces(mesh) {
+    const { faces } = mesh;
+    // Handle edges on indexed faces.
+    const numFaces = faces.length / 3;
+    // Use hash to calc edges.
+    const edgesHash = {};
+    const edges = [];
+    for (let i = 0; i < numFaces; i++) {
+        for (let j = 0; j < 3; j++) {
+            const index1 = faces[3 * i + j];
+            const index2 = faces[3 * i + (j + 1) % 3];
+            const key = `${Math.min(index1, index2)},${Math.max(index1, index2)}`;
+            // Only add each edge once.
+            if (edgesHash[key] === undefined) {
+                edgesHash[key] = true;
+                edges.push(index1, index2);
+            }
+        }
+    }
+    return edges;
+}
+/**
+ * Returns the edges in the mesh data (without duplicates).
  * Assumes mesh vertices are groups in sets of three to a face (triangle mesh).
  */
 export function calcEdgesFromNonIndexedFaces(mesh) {
@@ -53,11 +81,11 @@ export function calcEdgesFromNonIndexedFaces(mesh) {
     const numFaces = numVertices / 3;
     const edges = new Uint32Array(6 * numFaces);
     for (let i = 0; i < numFaces; i++) {
-        const faceIndex = 3 * i;
+        const index = 3 * i;
         for (let j = 0; j < 3; j++) {
             const edgeIndex = 6 * i + 2 * j;
-            edges[edgeIndex] = faceIndex + j;
-            edges[edgeIndex + 1] = faceIndex + (j + 1) % 3;
+            edges[edgeIndex] = index + j;
+            edges[edgeIndex + 1] = index + (j + 1) % 3;
         }
     }
     return edges;

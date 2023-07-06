@@ -11,6 +11,7 @@
 ### Functions
 
 - [calcBoundingBox](README.md#calcboundingbox)
+- [calcEdgesFromNestedIndexedFaces](README.md#calcedgesfromnestedindexedfaces)
 - [calcEdgesFromIndexedFaces](README.md#calcedgesfromindexedfaces)
 - [calcEdgesFromNonIndexedFaces](README.md#calcedgesfromnonindexedfaces)
 - [scaleVerticesToUnitBoundingBox](README.md#scaleverticestounitboundingbox)
@@ -42,7 +43,7 @@ Returns the bounding box of the mesh.
 | Name | Type |
 | :------ | :------ |
 | `mesh` | `Object` |
-| `mesh.vertices` | `number`[] \| `Float32Array` |
+| `mesh.vertices` | `number`[] \| `Float32Array` \| `Float64Array` |
 
 #### Returns
 
@@ -50,20 +51,41 @@ Returns the bounding box of the mesh.
 
 ___
 
-### calcEdgesFromIndexedFaces
+### calcEdgesFromNestedIndexedFaces
 
-▸ **calcEdgesFromIndexedFaces**(`mesh`): `number`[]
+▸ **calcEdgesFromNestedIndexedFaces**(`mesh`): `number`[]
 
-Returns the edges in the stl data (without duplicates).
+Returns the edges in the mesh data (without duplicates).
 Assumes mesh contains indexed faces.
-Assumes triangle faces.
+Vertices are grouped into faces of any size: [[f01, f0b, f0c], [f1a, f1b, f1c, f1d], ...]
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `mesh` | `Object` |
-| `mesh.faceIndices` | `number`[] \| `Uint32Array` |
+| `mesh.faces` | `number`[][] |
+
+#### Returns
+
+`number`[]
+
+___
+
+### calcEdgesFromIndexedFaces
+
+▸ **calcEdgesFromIndexedFaces**(`mesh`): `number`[]
+
+Returns the edges in the mesh data (without duplicates).
+Assumes mesh contains indexed faces.
+Assumes flat list of triangle faces: [f0a, f0b, f0c, f1a, f1b, f1c, ...]
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `mesh` | `Object` |
+| `mesh.faces` | `number`[] \| `Uint32Array` |
 
 #### Returns
 
@@ -75,7 +97,7 @@ ___
 
 ▸ **calcEdgesFromNonIndexedFaces**(`mesh`): `Uint32Array`
 
-Returns the edges in the stl data (without duplicates).
+Returns the edges in the mesh data (without duplicates).
 Assumes mesh vertices are groups in sets of three to a face (triangle mesh).
 
 #### Parameters
@@ -83,7 +105,7 @@ Assumes mesh vertices are groups in sets of three to a face (triangle mesh).
 | Name | Type |
 | :------ | :------ |
 | `mesh` | `Object` |
-| `mesh.vertices` | `number`[] \| `Float32Array` |
+| `mesh.vertices` | `number`[] \| `Float32Array` \| `Float64Array` |
 
 #### Returns
 
@@ -103,9 +125,9 @@ Assumes all vertex positions are used in mesh.
 | Name | Type | Default value |
 | :------ | :------ | :------ |
 | `mesh` | `Object` | `undefined` |
-| `mesh.vertices` | `number`[] \| `Float32Array` | `undefined` |
+| `mesh.vertices` | `number`[] \| `Float32Array` \| `Float64Array` | `undefined` |
 | `mesh.boundingBox` | [`BoundingBox`](README.md#boundingbox) | `undefined` |
-| `target` | `number`[] \| `Float32Array` | `mesh.vertices` |
+| `target` | `number`[] \| `Float32Array` \| `Float64Array` | `mesh.vertices` |
 
 #### Returns
 
@@ -124,7 +146,7 @@ Merge coincident vertices and index faces.
 | Name | Type |
 | :------ | :------ |
 | `mesh` | `Object` |
-| `mesh.vertices` | `number`[] \| `Float32Array` |
+| `mesh.vertices` | `number`[] \| `Float32Array` \| `Float64Array` |
 
 #### Returns
 
