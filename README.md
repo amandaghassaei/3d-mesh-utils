@@ -10,7 +10,7 @@ Geometry processing utility functions for 3D meshes – unit tested and written 
 Used by the following libraries:
 - [@amandaghassaei/stl-parser](https://www.npmjs.com/package/@amandaghassaei/stl-parser) - binary or ASCII .stl format parser
 <!-- - [@amandaghassaei/obj-parser](https://www.npmjs.com/package/@amandaghassaei/obj-parser) - binary or ASCII .obj format parser -->
-<!-- - [msh-parser](https://www.npmjs.com/package/msh-parser) - finite element .msh format parser -->
+- [msh-parser](https://www.npmjs.com/package/msh-parser) - finite element .msh format parser
 
 
 ## Installation
@@ -60,8 +60,8 @@ This work is licensed under an [MIT License](https://github.com/amandaghassaei/3
 
 ## Related Libraries
 
-- [@amandaghassaei/stl-parser](https://github.com/amandaghassaei/stl-parser) - binary or ASCII .stl format parser
-- [msh-parser](https://github.com/amandaghassaei/msh-parser) - finite element .msh format parser
+- [@amandaghassaei/stl-parser](https://www.npmjs.com/package/@amandaghassaei/stl-parser) - binary or ASCII .stl format parser
+- [msh-parser](https://www.npmjs.com/package/msh-parser) - finite element .msh format parser
 
 
 ## Development
