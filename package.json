@@ -1,6 +1,6 @@
 {
   "name": "@amandaghassaei/3d-mesh-utils",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "description": "Geometry processing utility functions for 3D meshes, written in TypeScript.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
