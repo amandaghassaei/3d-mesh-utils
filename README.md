@@ -24,7 +24,10 @@ npm install @amandaghassaei/3d-mesh-utils
 and import into your project:
 
 ```js
-import { calcBoundingBox, mergeVertices } from '@amandaghassaei/3d-mesh-utils';
+import {
+  calcBoundingBox,
+  mergeVertices,
+} from '@amandaghassaei/3d-mesh-utils';
 ```
 
 ### Import into HTML
@@ -50,7 +53,7 @@ const { calcBoundingBox, mergeVertices } = MESH_UTILS;
 
 ## Use
 
-See full docs at [github.com/amandaghassaei/3d-mesh-utils/tree/main/docs](https://github.com/amandaghassaei/3d-mesh-utils/tree/main/docs).
+Full API documentation in [docs](https://github.com/amandaghassaei/3d-mesh-utils/tree/main/docs).
 
 
 ## License
