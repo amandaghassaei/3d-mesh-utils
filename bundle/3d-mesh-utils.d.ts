@@ -5,6 +5,28 @@ type BoundingBox = {
 type VertexArray = Float32Array | Float64Array | number[];
 
 /**
+ * Make hash key for edge.
+ * @param index1 - Index of first vertex.
+ * @param index2 - Index of second vertex.
+ * @returns - Hash key for edge.
+ */
+declare function makeEdgeHash(index1: number, index2: number): string;
+/**
+ * Make hash key for triangle face.
+ * @param index1 - Index of first vertex.
+ * @param index2 - Index of second vertex.
+ * @param index3 - Index of third vertex.
+ * @returns - Hash key for triangle face.
+ */
+declare function makeTriangleFaceHash(index1: number, index2: number, index3: number): string;
+/**
+ * Make hash key for face with any number of vertices.
+ * @param faceIndices - Array of vertex indices.
+ * @returns - Hash key for face.
+ */
+declare function makeFaceHash(faceIndices: number[]): string;
+
+/**
  * Returns the bounding box of the mesh.
  */
 declare function calcBoundingBox(mesh: {
@@ -51,4 +73,4 @@ declare function mergeVertices(mesh: {
     facesIndexed: Uint32Array;
 };
 
-export { BoundingBox, VertexArray, calcBoundingBox, calcEdgesFromIndexedFaces, calcEdgesFromNestedIndexedFaces, calcEdgesFromNonIndexedFaces, mergeVertices, scaleVerticesToUnitBoundingBox };
+export { BoundingBox, VertexArray, calcBoundingBox, calcEdgesFromIndexedFaces, calcEdgesFromNestedIndexedFaces, calcEdgesFromNonIndexedFaces, makeEdgeHash, makeFaceHash, makeTriangleFaceHash, mergeVertices, scaleVerticesToUnitBoundingBox };

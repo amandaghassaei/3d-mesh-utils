@@ -17,6 +17,9 @@
 - [calcEdgesFromNonIndexedFaces](README.md#calcedgesfromnonindexedfaces)
 - [scaleVerticesToUnitBoundingBox](README.md#scaleverticestounitboundingbox)
 - [mergeVertices](README.md#mergevertices)
+- [makeEdgeHash](README.md#makeedgehash)
+- [makeTriangleFaceHash](README.md#maketrianglefacehash)
+- [makeFaceHash](README.md#makefacehash)
 
 ## Type Aliases
 
@@ -163,3 +166,66 @@ Merge coincident vertices and index faces.
 | :------ | :------ |
 | `verticesMerged` | `number`[] |
 | `facesIndexed` | `Uint32Array` |
+
+___
+
+### makeEdgeHash
+
+▸ **makeEdgeHash**(`index1`, `index2`): `string`
+
+Make hash key for edge.
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `index1` | `number` | Index of first vertex. |
+| `index2` | `number` | Index of second vertex. |
+
+#### Returns
+
+`string`
+
+- Hash key for edge.
+
+___
+
+### makeTriangleFaceHash
+
+▸ **makeTriangleFaceHash**(`index1`, `index2`, `index3`): `string`
+
+Make hash key for triangle face.
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `index1` | `number` | Index of first vertex. |
+| `index2` | `number` | Index of second vertex. |
+| `index3` | `number` | Index of third vertex. |
+
+#### Returns
+
+`string`
+
+- Hash key for triangle face.
+
+___
+
+### makeFaceHash
+
+▸ **makeFaceHash**(`faceIndices`): `string`
+
+Make hash key for face with any number of vertices.
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `faceIndices` | `number`[] | Array of vertex indices. |
+
+#### Returns
+
+`string`
+
+- Hash key for face.
