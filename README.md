@@ -3,7 +3,7 @@
 [![Build Size](https://img.shields.io/bundlephobia/min/@amandaghassaei/3d-mesh-utils)](https://bundlephobia.com/result?p=@amandaghassaei/3d-mesh-utils)
 [![NPM Downloads](https://img.shields.io/npm/dw/@amandaghassaei/3d-mesh-utils)](https://www.npmtrends.com/@amandaghassaei/3d-mesh-utils)
 [![License](https://img.shields.io/npm/l/@amandaghassaei/3d-mesh-utils)](https://github.com/amandaghassaei/3d-mesh-utils/blob/main/LICENSE.txt)
-![](https://img.shields.io/badge/Coverage-89%25-83A603.svg?prefix=$coverage$)
+![](https://img.shields.io/badge/Coverage-100%25-83A603.svg?prefix=$coverage$)
 
 Geometry processing utility functions for 3D meshes – unit tested and written in TypeScript.
 
