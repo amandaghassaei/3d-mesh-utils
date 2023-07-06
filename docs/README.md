@@ -64,7 +64,7 @@ Vertices are grouped into faces of any size: [[f01, f0b, f0c], [f1a, f1b, f1c, f
 | Name | Type |
 | :------ | :------ |
 | `mesh` | `Object` |
-| `mesh.faces` | `number`[][] |
+| `mesh.faceIndices` | `number`[][] |
 
 #### Returns
 
@@ -85,7 +85,7 @@ Assumes flat list of triangle faces: [f0a, f0b, f0c, f1a, f1b, f1c, ...]
 | Name | Type |
 | :------ | :------ |
 | `mesh` | `Object` |
-| `mesh.faces` | `number`[] \| `Uint32Array` |
+| `mesh.faceIndices` | `number`[] \| `Uint32Array` |
 
 #### Returns
 

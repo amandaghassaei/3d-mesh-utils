@@ -14,7 +14,7 @@ export declare function calcBoundingBox(mesh: {
  * Vertices are grouped into faces of any size: [[f01, f0b, f0c], [f1a, f1b, f1c, f1d], ...]
  */
 export declare function calcEdgesFromNestedIndexedFaces(mesh: {
-    faces: number[][];
+    faceIndices: number[][];
 }): number[];
 /**
  * Returns the edges in the mesh data (without duplicates).
@@ -22,7 +22,7 @@ export declare function calcEdgesFromNestedIndexedFaces(mesh: {
  * Assumes flat list of triangle faces: [f0a, f0b, f0c, f1a, f1b, f1c, ...]
  */
 export declare function calcEdgesFromIndexedFaces(mesh: {
-    faces: Uint32Array | number[];
+    faceIndices: Uint32Array | number[];
 }): number[];
 /**
  * Returns the edges in the mesh data (without duplicates).
