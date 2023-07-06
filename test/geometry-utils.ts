@@ -15,7 +15,7 @@ const cubeAscii = readFileSync('./test/stl/cubeAscii.stl');
 const cubeBinary = readFileSync('./test/stl/cubeBinary.stl');
 const bunnyMsh = readFileSync('./test/msh/stanford_bunny.msh');
 
-describe('3d-mesh-utils', () => {
+describe('geometry-utils', () => {
 	it('mergeVertices() - merges vertices and indexed faces', async () => {
 		const mesh = parseSTL(cubeAscii);
 		expect(mesh.vertices.length).to.equal(6 * 6 * 3);
