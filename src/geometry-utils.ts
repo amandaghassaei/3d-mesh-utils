@@ -1,13 +1,10 @@
-export type BoundingBox = {
-	min: [number, number, number];
-	max: [number, number, number];
-}
+import type { BoundingBox, VertexArray } from './types';
 
 /**
  * Returns the bounding box of the mesh.
  */
 export function calcBoundingBox(mesh: {
-	vertices: Float32Array | Float64Array | number[];
+	vertices: VertexArray;
 }): BoundingBox {
 	const { vertices } = mesh;
 	const numVertices = vertices.length / 3;
@@ -89,7 +86,7 @@ export function calcEdgesFromIndexedFaces(mesh: {
  * Assumes mesh vertices are groups in sets of three to a face (triangle mesh).
  */
 export function calcEdgesFromNonIndexedFaces(mesh: {
-	vertices: Float32Array | Float64Array | number[];
+	vertices: VertexArray;
 }) {
 	const { vertices } = mesh;
 	const numVertices = vertices.length / 3;
@@ -112,9 +109,9 @@ export function calcEdgesFromNonIndexedFaces(mesh: {
  * Assumes all vertex positions are used in mesh.
  */
 export function scaleVerticesToUnitBoundingBox(mesh: {
-	vertices: Float32Array | Float64Array | number[];
+	vertices: VertexArray;
 	boundingBox: BoundingBox;
-}, target: Float32Array | Float64Array | number[] = mesh.vertices) {
+}, target: VertexArray = mesh.vertices) {
 	const { vertices, boundingBox } = mesh;
 	const { min, max } = boundingBox;
 	const diff = [max[0] - min[0], max[1] - min[1], max[2] - min[2]];
@@ -133,7 +130,7 @@ export function scaleVerticesToUnitBoundingBox(mesh: {
  * Merge coincident vertices and index faces.
  */
 export function mergeVertices(mesh: {
-	vertices: Float32Array | Float64Array | number[];
+	vertices: VertexArray;
 }) {
 	const { vertices } = mesh;
 	const numFaces = vertices.length / 9;

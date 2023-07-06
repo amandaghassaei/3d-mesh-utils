@@ -7,6 +7,7 @@
 ### Type Aliases
 
 - [BoundingBox](README.md#boundingbox)
+- [VertexArray](README.md#vertexarray)
 
 ### Functions
 
@@ -30,6 +31,12 @@
 | `min` | [`number`, `number`, `number`] |
 | `max` | [`number`, `number`, `number`] |
 
+___
+
+### VertexArray
+
+Ƭ **VertexArray**: `Float32Array` \| `Float64Array` \| `number`[]
+
 ## Functions
 
 ### calcBoundingBox
@@ -43,7 +50,7 @@ Returns the bounding box of the mesh.
 | Name | Type |
 | :------ | :------ |
 | `mesh` | `Object` |
-| `mesh.vertices` | `number`[] \| `Float32Array` \| `Float64Array` |
+| `mesh.vertices` | [`VertexArray`](README.md#vertexarray) |
 
 #### Returns
 
@@ -105,7 +112,7 @@ Assumes mesh vertices are groups in sets of three to a face (triangle mesh).
 | Name | Type |
 | :------ | :------ |
 | `mesh` | `Object` |
-| `mesh.vertices` | `number`[] \| `Float32Array` \| `Float64Array` |
+| `mesh.vertices` | [`VertexArray`](README.md#vertexarray) |
 
 #### Returns
 
@@ -125,9 +132,9 @@ Assumes all vertex positions are used in mesh.
 | Name | Type | Default value |
 | :------ | :------ | :------ |
 | `mesh` | `Object` | `undefined` |
-| `mesh.vertices` | `number`[] \| `Float32Array` \| `Float64Array` | `undefined` |
+| `mesh.vertices` | [`VertexArray`](README.md#vertexarray) | `undefined` |
 | `mesh.boundingBox` | [`BoundingBox`](README.md#boundingbox) | `undefined` |
-| `target` | `number`[] \| `Float32Array` \| `Float64Array` | `mesh.vertices` |
+| `target` | [`VertexArray`](README.md#vertexarray) | `mesh.vertices` |
 
 #### Returns
 
@@ -146,7 +153,7 @@ Merge coincident vertices and index faces.
 | Name | Type |
 | :------ | :------ |
 | `mesh` | `Object` |
-| `mesh.vertices` | `number`[] \| `Float32Array` \| `Float64Array` |
+| `mesh.vertices` | [`VertexArray`](README.md#vertexarray) |
 
 #### Returns
 

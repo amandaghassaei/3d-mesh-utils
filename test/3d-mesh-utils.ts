@@ -9,7 +9,7 @@ import {
 	mergeVertices,
 	scaleVerticesToUnitBoundingBox,
 	calcEdgesFromNestedIndexedFaces,
-} from '../src/3d-mesh-utils';
+} from '../src/geometry-utils';
 
 const cubeAscii = readFileSync('./test/stl/cubeAscii.stl');
 const cubeBinary = readFileSync('./test/stl/cubeBinary.stl');

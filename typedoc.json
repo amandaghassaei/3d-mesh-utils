@@ -1,5 +1,5 @@
 {
-    "entryPoints": ["./src/3d-mesh-utils.ts"],
+    "entryPoints": ["./src/index.ts"],
     "tsconfig": "./tsconfig.json",
 	"cleanOutputDir": false,
 	"plugin": "typedoc-plugin-markdown",

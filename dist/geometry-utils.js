@@ -144,4 +144,4 @@ export function mergeVertices(mesh) {
         facesIndexed,
     };
 }
-//# sourceMappingURL=3d-mesh-utils.js.map
+//# sourceMappingURL=geometry-utils.js.map

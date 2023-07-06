@@ -1,12 +1,9 @@
-export type BoundingBox = {
-    min: [number, number, number];
-    max: [number, number, number];
-};
+import type { BoundingBox, VertexArray } from './types';
 /**
  * Returns the bounding box of the mesh.
  */
 export declare function calcBoundingBox(mesh: {
-    vertices: Float32Array | Float64Array | number[];
+    vertices: VertexArray;
 }): BoundingBox;
 /**
  * Returns the edges in the mesh data (without duplicates).
@@ -29,21 +26,21 @@ export declare function calcEdgesFromIndexedFaces(mesh: {
  * Assumes mesh vertices are groups in sets of three to a face (triangle mesh).
  */
 export declare function calcEdgesFromNonIndexedFaces(mesh: {
-    vertices: Float32Array | Float64Array | number[];
+    vertices: VertexArray;
 }): Uint32Array;
 /**
  * Scales vertex positions (in place, unless target provided) to unit bounding box and centers around origin.
  * Assumes all vertex positions are used in mesh.
  */
 export declare function scaleVerticesToUnitBoundingBox(mesh: {
-    vertices: Float32Array | Float64Array | number[];
+    vertices: VertexArray;
     boundingBox: BoundingBox;
-}, target?: Float32Array | Float64Array | number[]): void;
+}, target?: VertexArray): void;
 /**
  * Merge coincident vertices and index faces.
  */
 export declare function mergeVertices(mesh: {
-    vertices: Float32Array | Float64Array | number[];
+    vertices: VertexArray;
 }): {
     verticesMerged: number[];
     facesIndexed: Uint32Array;
