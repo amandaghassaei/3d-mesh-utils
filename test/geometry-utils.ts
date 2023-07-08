@@ -4,7 +4,7 @@ import { parseSTL } from '@amandaghassaei/stl-parser';
 import { parseMsh } from 'msh-parser';
 import {
 	calcBoundingBox,
-	calcEdgesFromIndexedFaces,
+	calcEdgeIndicesFromIndexedFaces,
 	calcEdgeIndicesFromNonIndexedFaces,
 	mergeVertices,
 	scaleVerticesToUnitBoundingBox,
@@ -42,7 +42,7 @@ describe('geometry-utils', () => {
 			]));
 			expect(edgesNonIndexed.length).to.equal(mesh.vertices.length / 3 * 2);
 			mesh.mergeVertices();
-			const edgesIndexed = calcEdgesFromIndexedFaces(mesh);
+			const edgesIndexed = calcEdgeIndicesFromIndexedFaces(mesh);
 			expect(edgesIndexed).to.deep.equal([
 				0, 1, 1, 2, 2, 0, 1, 3, 3,
 				2, 4, 0, 0, 5, 5, 4, 2, 5,
@@ -64,7 +64,7 @@ describe('geometry-utils', () => {
 			]));
 			expect(edgesNonIndexed.length).to.equal(mesh.vertices.length / 3 * 2);
 			mesh.mergeVertices();
-			const edgesIndexed = calcEdgesFromIndexedFaces(mesh);
+			const edgesIndexed = calcEdgeIndicesFromIndexedFaces(mesh);
 			expect(edgesIndexed).to.deep.equal([
 				0, 1, 1, 2, 2, 0, 1, 3, 3,
 				2, 4, 0, 0, 5, 5, 4, 2, 5,

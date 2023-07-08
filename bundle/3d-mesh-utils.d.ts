@@ -45,7 +45,7 @@ declare function calcEdgeIndicesFromNestedIndexedFaces(mesh: {
  * Assumes mesh contains indexed faces.
  * Assumes flat list of triangle faces: [f0a, f0b, f0c, f1a, f1b, f1c, ...]
  */
-declare function calcEdgesFromIndexedFaces(mesh: {
+declare function calcEdgeIndicesFromIndexedFaces(mesh: {
     faceIndices: Uint32Array | number[];
 }): number[];
 /**
@@ -79,4 +79,4 @@ declare function mergeVertices(mesh: {
     facesIndexed: Uint32Array;
 };
 
-export { BoundingBox, FloatArray, calcBoundingBox, calcEdgeIndicesFromNestedIndexedFaces, calcEdgeIndicesFromNonIndexedFaces, calcEdgesFromIndexedFaces, makeEdgeHash, makeFaceHash, makeTriangleFaceHash, mergeVertices, scaleVerticesToUnitBoundingBox };
+export { BoundingBox, FloatArray, calcBoundingBox, calcEdgeIndicesFromIndexedFaces, calcEdgeIndicesFromNestedIndexedFaces, calcEdgeIndicesFromNonIndexedFaces, makeEdgeHash, makeFaceHash, makeTriangleFaceHash, mergeVertices, scaleVerticesToUnitBoundingBox };

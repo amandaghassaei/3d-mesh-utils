@@ -13,7 +13,7 @@
 
 - [calcBoundingBox](README.md#calcboundingbox)
 - [calcEdgeIndicesFromNestedIndexedFaces](README.md#calcedgeindicesfromnestedindexedfaces)
-- [calcEdgesFromIndexedFaces](README.md#calcedgesfromindexedfaces)
+- [calcEdgeIndicesFromIndexedFaces](README.md#calcedgeindicesfromindexedfaces)
 - [calcEdgeIndicesFromNonIndexedFaces](README.md#calcedgeindicesfromnonindexedfaces)
 - [scaleVerticesToUnitBoundingBox](README.md#scaleverticestounitboundingbox)
 - [mergeVertices](README.md#mergevertices)
@@ -82,9 +82,9 @@ Vertices are grouped into faces of any size: [[f01, f0b, f0c], [f1a, f1b, f1c, f
 
 ___
 
-### calcEdgesFromIndexedFaces
+### calcEdgeIndicesFromIndexedFaces
 
-▸ **calcEdgesFromIndexedFaces**(`mesh`): `number`[]
+▸ **calcEdgeIndicesFromIndexedFaces**(`mesh`): `number`[]
 
 Returns the edges in the mesh data (without duplicates).
 Assumes mesh contains indexed faces.

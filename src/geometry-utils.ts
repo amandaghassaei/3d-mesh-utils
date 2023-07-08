@@ -58,7 +58,7 @@ export function calcEdgeIndicesFromNestedIndexedFaces(mesh: {
  * Assumes mesh contains indexed faces.
  * Assumes flat list of triangle faces: [f0a, f0b, f0c, f1a, f1b, f1c, ...]
  */
-export function calcEdgesFromIndexedFaces(mesh: {
+export function calcEdgeIndicesFromIndexedFaces(mesh: {
 	faceIndices: Uint32Array | number[];
 }) {
 	const { faceIndices } = mesh;
