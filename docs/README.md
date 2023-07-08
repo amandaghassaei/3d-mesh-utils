@@ -7,14 +7,14 @@
 ### Type Aliases
 
 - [BoundingBox](README.md#boundingbox)
-- [VertexArray](README.md#vertexarray)
+- [FloatArray](README.md#floatarray)
 
 ### Functions
 
 - [calcBoundingBox](README.md#calcboundingbox)
-- [calcEdgesFromNestedIndexedFaces](README.md#calcedgesfromnestedindexedfaces)
+- [calcEdgeIndicesFromNestedIndexedFaces](README.md#calcedgeindicesfromnestedindexedfaces)
 - [calcEdgesFromIndexedFaces](README.md#calcedgesfromindexedfaces)
-- [calcEdgesFromNonIndexedFaces](README.md#calcedgesfromnonindexedfaces)
+- [calcEdgeIndicesFromNonIndexedFaces](README.md#calcedgeindicesfromnonindexedfaces)
 - [scaleVerticesToUnitBoundingBox](README.md#scaleverticestounitboundingbox)
 - [mergeVertices](README.md#mergevertices)
 - [makeEdgeHash](README.md#makeedgehash)
@@ -36,9 +36,9 @@
 
 ___
 
-### VertexArray
+### FloatArray
 
-Ƭ **VertexArray**: `Float32Array` \| `Float64Array` \| `number`[]
+Ƭ **FloatArray**: `Float32Array` \| `Float64Array` \| `number`[]
 
 ## Functions
 
@@ -53,7 +53,7 @@ Returns the bounding box of the mesh.
 | Name | Type |
 | :------ | :------ |
 | `mesh` | `Object` |
-| `mesh.vertices` | [`VertexArray`](README.md#vertexarray) |
+| `mesh.vertices` | [`FloatArray`](README.md#floatarray) |
 
 #### Returns
 
@@ -61,9 +61,9 @@ Returns the bounding box of the mesh.
 
 ___
 
-### calcEdgesFromNestedIndexedFaces
+### calcEdgeIndicesFromNestedIndexedFaces
 
-▸ **calcEdgesFromNestedIndexedFaces**(`mesh`): `number`[]
+▸ **calcEdgeIndicesFromNestedIndexedFaces**(`mesh`): `number`[]
 
 Returns the edges in the mesh data (without duplicates).
 Assumes mesh contains indexed faces.
@@ -103,9 +103,9 @@ Assumes flat list of triangle faces: [f0a, f0b, f0c, f1a, f1b, f1c, ...]
 
 ___
 
-### calcEdgesFromNonIndexedFaces
+### calcEdgeIndicesFromNonIndexedFaces
 
-▸ **calcEdgesFromNonIndexedFaces**(`mesh`): `Uint32Array`
+▸ **calcEdgeIndicesFromNonIndexedFaces**(`mesh`): `Uint32Array`
 
 Returns the edges in the mesh data (without duplicates).
 Assumes mesh vertices are groups in sets of three to a face (triangle mesh).
@@ -115,7 +115,7 @@ Assumes mesh vertices are groups in sets of three to a face (triangle mesh).
 | Name | Type |
 | :------ | :------ |
 | `mesh` | `Object` |
-| `mesh.vertices` | [`VertexArray`](README.md#vertexarray) |
+| `mesh.vertices` | [`FloatArray`](README.md#floatarray) |
 
 #### Returns
 
@@ -135,9 +135,9 @@ Assumes all vertex positions are used in mesh.
 | Name | Type | Default value |
 | :------ | :------ | :------ |
 | `mesh` | `Object` | `undefined` |
-| `mesh.vertices` | [`VertexArray`](README.md#vertexarray) | `undefined` |
+| `mesh.vertices` | [`FloatArray`](README.md#floatarray) | `undefined` |
 | `mesh.boundingBox` | [`BoundingBox`](README.md#boundingbox) | `undefined` |
-| `target` | [`VertexArray`](README.md#vertexarray) | `mesh.vertices` |
+| `target` | [`FloatArray`](README.md#floatarray) | `mesh.vertices` |
 
 #### Returns
 
@@ -156,7 +156,10 @@ Merge coincident vertices and index faces.
 | Name | Type |
 | :------ | :------ |
 | `mesh` | `Object` |
-| `mesh.vertices` | [`VertexArray`](README.md#vertexarray) |
+| `mesh.vertices` | [`FloatArray`](README.md#floatarray) |
+| `mesh.uvs?` | [`FloatArray`](README.md#floatarray) |
+| `mesh.vertexNormals?` | [`FloatArray`](README.md#floatarray) |
+| `mesh.vertexColors?` | [`FloatArray`](README.md#floatarray) |
 
 #### Returns
 
@@ -164,7 +167,10 @@ Merge coincident vertices and index faces.
 
 | Name | Type |
 | :------ | :------ |
-| `verticesMerged` | `number`[] |
+| `verticesMerged` | `Float32Array` |
+| `uvsMerged` | `undefined` \| [`FloatArray`](README.md#floatarray) |
+| `vertexNormalsMerged` | `undefined` \| [`FloatArray`](README.md#floatarray) |
+| `vertexColorsMerged` | `undefined` \| [`FloatArray`](README.md#floatarray) |
 | `facesIndexed` | `Uint32Array` |
 
 ___

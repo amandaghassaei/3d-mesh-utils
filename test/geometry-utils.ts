@@ -5,10 +5,10 @@ import { parseMsh } from 'msh-parser';
 import {
 	calcBoundingBox,
 	calcEdgesFromIndexedFaces,
-	calcEdgesFromNonIndexedFaces,
+	calcEdgeIndicesFromNonIndexedFaces,
 	mergeVertices,
 	scaleVerticesToUnitBoundingBox,
-	calcEdgesFromNestedIndexedFaces,
+	calcEdgeIndicesFromNestedIndexedFaces,
 } from '../src/geometry-utils';
 
 const cubeAscii = readFileSync('./test/stl/cubeAscii.stl');
@@ -28,10 +28,10 @@ describe('geometry-utils', () => {
 			2, 7, 5, 1, 0, 6, 6, 0, 4
 		]));			
 	});
-	it('calcEdgesFromNonIndexedFaces(), calcEdgesFromIndexedFaces(), calcEdgesFromNestedIndexedFaces() - calculates edges', () => {
+	it('calcEdgeIndicesFromNonIndexedFaces(), calcEdgeIndicesFromIndexedFaces(), calcEdgeIndicesFromNestedIndexedFaces() - calculates edges', () => {
 		{
 			const mesh = parseSTL(cubeAscii);
-			const edgesNonIndexed = calcEdgesFromNonIndexedFaces(mesh);
+			const edgesNonIndexed = calcEdgeIndicesFromNonIndexedFaces(mesh);
 			expect(edgesNonIndexed).to.deep.equal(new Uint32Array([
 				0,  1,  1,  2,  2,  0,  3,  4,  4,  5,  5,  3,
 				6,  7,  7,  8,  8,  6,  9, 10, 10, 11, 11,  9,
@@ -53,7 +53,7 @@ describe('geometry-utils', () => {
 		}
 		{
 			const mesh = parseSTL(cubeBinary);
-			const edgesNonIndexed = calcEdgesFromNonIndexedFaces(mesh);
+			const edgesNonIndexed = calcEdgeIndicesFromNonIndexedFaces(mesh);
 			expect(edgesNonIndexed).to.deep.equal(new Uint32Array([
 				0,  1,  1,  2,  2,  0,  3,  4,  4,  5,  5,  3,
 				6,  7,  7,  8,  8,  6,  9, 10, 10, 11, 11,  9,
@@ -75,7 +75,7 @@ describe('geometry-utils', () => {
 		}
 		{
 			const mesh = parseMsh(bunnyMsh);
-			const edges = calcEdgesFromNestedIndexedFaces({ faceIndices: mesh.exteriorFaces });
+			const edges = calcEdgeIndicesFromNestedIndexedFaces({ faceIndices: mesh.exteriorFaces });
 			expect(edges.slice(0, 100)).to.deep.equal([
 				2, 6, 6, 3, 3, 2, 0, 3, 3, 9, 9, 0, 9, 14, 14, 0, 1, 4, 4, 2, 2, 1, 1, 13, 13, 4, 0, 1, 2, 0, 4, 5, 5, 2, 5, 6, 4, 8, 8, 5, 6, 12, 12, 3, 12, 9, 4, 19, 19, 8, 5, 11, 11, 6, 11, 12, 12, 17, 17, 9, 9, 18, 18, 14, 17, 18, 1, 15, 15, 16, 16, 1, 12, 6341, 6341, 17, 7, 22, 22, 13, 13, 7, 18, 23, 23, 14, 15, 21, 21, 45, 45, 15, 18, 98, 98, 23, 12, 53, 53, 6341
 			]);

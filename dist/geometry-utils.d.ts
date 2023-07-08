@@ -1,16 +1,16 @@
-import type { BoundingBox, VertexArray } from './types';
+import type { BoundingBox, FloatArray } from './types';
 /**
  * Returns the bounding box of the mesh.
  */
 export declare function calcBoundingBox(mesh: {
-    vertices: VertexArray;
+    vertices: FloatArray;
 }): BoundingBox;
 /**
  * Returns the edges in the mesh data (without duplicates).
  * Assumes mesh contains indexed faces.
  * Vertices are grouped into faces of any size: [[f01, f0b, f0c], [f1a, f1b, f1c, f1d], ...]
  */
-export declare function calcEdgesFromNestedIndexedFaces(mesh: {
+export declare function calcEdgeIndicesFromNestedIndexedFaces(mesh: {
     faceIndices: number[][];
 }): number[];
 /**
@@ -25,23 +25,29 @@ export declare function calcEdgesFromIndexedFaces(mesh: {
  * Returns the edges in the mesh data (without duplicates).
  * Assumes mesh vertices are groups in sets of three to a face (triangle mesh).
  */
-export declare function calcEdgesFromNonIndexedFaces(mesh: {
-    vertices: VertexArray;
+export declare function calcEdgeIndicesFromNonIndexedFaces(mesh: {
+    vertices: FloatArray;
 }): Uint32Array;
 /**
  * Scales vertex positions (in place, unless target provided) to unit bounding box and centers around origin.
  * Assumes all vertex positions are used in mesh.
  */
 export declare function scaleVerticesToUnitBoundingBox(mesh: {
-    vertices: VertexArray;
+    vertices: FloatArray;
     boundingBox: BoundingBox;
-}, target?: VertexArray): void;
+}, target?: FloatArray): void;
 /**
  * Merge coincident vertices and index faces.
  */
 export declare function mergeVertices(mesh: {
-    vertices: VertexArray;
+    vertices: FloatArray;
+    uvs?: FloatArray;
+    vertexNormals?: FloatArray;
+    vertexColors?: FloatArray;
 }): {
-    verticesMerged: number[];
+    verticesMerged: Float32Array;
+    uvsMerged: FloatArray | undefined;
+    vertexNormalsMerged: FloatArray | undefined;
+    vertexColorsMerged: FloatArray | undefined;
     facesIndexed: Uint32Array;
 };
