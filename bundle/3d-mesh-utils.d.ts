@@ -21,10 +21,10 @@ declare function makeEdgeHash(index1: number, index2: number): string;
 declare function makeTriangleFaceHash(index1: number, index2: number, index3: number): string;
 /**
  * Make hash key for face with any number of vertices.
- * @param faceIndices - Array of vertex indices.
+ * @param facesIndices - Array of vertex indices.
  * @returns - Hash key for face.
  */
-declare function makeFaceHash(faceIndices: number[]): string;
+declare function makeFaceHash(facesIndices: number[]): string;
 
 /**
  * Returns the bounding box of the mesh.
@@ -38,7 +38,7 @@ declare function calcBoundingBox(mesh: {
  * Vertices are grouped into faces of any size: [[f01, f0b, f0c], [f1a, f1b, f1c, f1d], ...]
  */
 declare function calcEdgeIndicesFromNestedIndexedFaces(mesh: {
-    faceIndices: number[][];
+    facesIndices: number[][];
 }): number[];
 /**
  * Returns the edges in the mesh data (without duplicates).
@@ -46,7 +46,7 @@ declare function calcEdgeIndicesFromNestedIndexedFaces(mesh: {
  * Assumes flat list of triangle faces: [f0a, f0b, f0c, f1a, f1b, f1c, ...]
  */
 declare function calcEdgeIndicesFromIndexedFaces(mesh: {
-    faceIndices: Uint32Array | number[];
+    facesIndices: Uint32Array | number[];
 }): number[];
 /**
  * Returns the edges in the mesh data (without duplicates).

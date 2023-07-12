@@ -28,16 +28,16 @@ export function calcBoundingBox(mesh: {
  * Vertices are grouped into faces of any size: [[f01, f0b, f0c], [f1a, f1b, f1c, f1d], ...]
  */
 export function calcEdgeIndicesFromNestedIndexedFaces(mesh: {
-	faceIndices: number[][];
+	facesIndices: number[][];
 }) {
-	const { faceIndices } = mesh;
+	const { facesIndices } = mesh;
 	// Handle edges on indexed faces.
-	const numFaces = faceIndices.length;
+	const numFaces = facesIndices.length;
 	// Use hash to calc edges.
 	const edgesHash : { [key: string]: boolean } = {};
 	const edges: number[] = [];
 	for (let i = 0; i < numFaces; i++) {
-		const face = faceIndices[i];
+		const face = facesIndices[i];
 		const numVertices = face.length;
 		for (let j = 0; j < numVertices; j++) {
 			const index1 = face[j];
@@ -59,27 +59,27 @@ export function calcEdgeIndicesFromNestedIndexedFaces(mesh: {
  * Assumes flat list of triangle faces: [f0a, f0b, f0c, f1a, f1b, f1c, ...]
  */
 export function calcEdgeIndicesFromIndexedFaces(mesh: {
-	faceIndices: Uint32Array | number[];
+	facesIndices: Uint32Array | number[];
 }) {
-	const { faceIndices } = mesh;
+	const { facesIndices } = mesh;
 	// Handle edges on indexed faces.
-	const numFaces = faceIndices.length / 3;
+	const numFaces = facesIndices.length / 3;
 	// Use hash to calc edges.
 	const edgesHash : { [key: string]: boolean } = {};
-	const edges: number[] = [];
+	const edgeIndices: number[] = [];
 	for (let i = 0; i < numFaces; i++) {
 		for (let j = 0; j < 3; j++) {
-			const index1 = faceIndices[3 * i + j];
-			const index2 = faceIndices[3 * i + (j + 1) % 3];
+			const index1 = facesIndices[3 * i + j];
+			const index2 = facesIndices[3 * i + (j + 1) % 3];
 			const key = makeEdgeHash(index1, index2);
 			// Only add each edge once.
 			if (edgesHash[key] === undefined) {
 				edgesHash[key] = true;
-				edges.push(index1, index2);
+				edgeIndices.push(index1, index2);
 			}
 		}
 	}
-	return edges;
+	return edgeIndices;
 }
 
 /**

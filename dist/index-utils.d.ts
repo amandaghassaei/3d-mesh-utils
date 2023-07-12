@@ -15,7 +15,7 @@ export declare function makeEdgeHash(index1: number, index2: number): string;
 export declare function makeTriangleFaceHash(index1: number, index2: number, index3: number): string;
 /**
  * Make hash key for face with any number of vertices.
- * @param faceIndices - Array of vertex indices.
+ * @param facesIndices - Array of vertex indices.
  * @returns - Hash key for face.
  */
-export declare function makeFaceHash(faceIndices: number[]): string;
+export declare function makeFaceHash(facesIndices: number[]): string;

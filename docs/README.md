@@ -74,7 +74,7 @@ Vertices are grouped into faces of any size: [[f01, f0b, f0c], [f1a, f1b, f1c, f
 | Name | Type |
 | :------ | :------ |
 | `mesh` | `Object` |
-| `mesh.faceIndices` | `number`[][] |
+| `mesh.facesIndices` | `number`[][] |
 
 #### Returns
 
@@ -95,7 +95,7 @@ Assumes flat list of triangle faces: [f0a, f0b, f0c, f1a, f1b, f1c, ...]
 | Name | Type |
 | :------ | :------ |
 | `mesh` | `Object` |
-| `mesh.faceIndices` | `number`[] \| `Uint32Array` |
+| `mesh.facesIndices` | `number`[] \| `Uint32Array` |
 
 #### Returns
 
@@ -220,7 +220,7 @@ ___
 
 ### makeFaceHash
 
-▸ **makeFaceHash**(`faceIndices`): `string`
+▸ **makeFaceHash**(`facesIndices`): `string`
 
 Make hash key for face with any number of vertices.
 
@@ -228,7 +228,7 @@ Make hash key for face with any number of vertices.
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `faceIndices` | `number`[] | Array of vertex indices. |
+| `facesIndices` | `number`[] | Array of vertex indices. |
 
 #### Returns
 

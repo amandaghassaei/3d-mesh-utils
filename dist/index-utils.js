@@ -23,14 +23,14 @@ export function makeTriangleFaceHash(index1, index2, index3) {
 let tempArray = [];
 /**
  * Make hash key for face with any number of vertices.
- * @param faceIndices - Array of vertex indices.
+ * @param facesIndices - Array of vertex indices.
  * @returns - Hash key for face.
  */
-export function makeFaceHash(faceIndices) {
-    const length = faceIndices.length;
+export function makeFaceHash(facesIndices) {
+    const length = facesIndices.length;
     tempArray.length = length;
     for (let i = 0; i < length; i++) {
-        tempArray[i] = faceIndices[i];
+        tempArray[i] = facesIndices[i];
     }
     tempArray.sort((a, b) => (a - b));
     return tempArray.join(',');

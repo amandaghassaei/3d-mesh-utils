@@ -12,7 +12,7 @@
     "geometry processing"
   ],
   "scripts": {
-    "build": "rollup --config && tsc && npm run docs && npm run test-with-coverage && npm run make-coverage-badge",
+    "build": "rollup --config && tsc && npm run docs && npm run make-coverage-badge",
     "docs": "typedoc --options ./typedoc.json",
     "test": "mocha 'test/**/*.ts'",
     "make-coverage-badge": "c8 --reporter=json-summary mocha 'test/**/*.ts' && coverage-badge-creator",
