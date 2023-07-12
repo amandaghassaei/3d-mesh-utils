@@ -12,9 +12,9 @@
 ### Functions
 
 - [calcBoundingBox](README.md#calcboundingbox)
-- [calcEdgeIndicesFromNestedIndexedFaces](README.md#calcedgeindicesfromnestedindexedfaces)
-- [calcEdgeIndicesFromIndexedFaces](README.md#calcedgeindicesfromindexedfaces)
-- [calcEdgeIndicesFromNonIndexedFaces](README.md#calcedgeindicesfromnonindexedfaces)
+- [calcEdgesIndicesFromNestedIndexedFaces](README.md#calcedgesindicesfromnestedindexedfaces)
+- [calcEdgesIndicesFromIndexedFaces](README.md#calcedgesindicesfromindexedfaces)
+- [calcEdgesIndicesFromNonIndexedFaces](README.md#calcedgesindicesfromnonindexedfaces)
 - [scaleVerticesToUnitBoundingBox](README.md#scaleverticestounitboundingbox)
 - [mergeVertices](README.md#mergevertices)
 - [makeEdgeHash](README.md#makeedgehash)
@@ -61,9 +61,9 @@ Returns the bounding box of the mesh.
 
 ___
 
-### calcEdgeIndicesFromNestedIndexedFaces
+### calcEdgesIndicesFromNestedIndexedFaces
 
-▸ **calcEdgeIndicesFromNestedIndexedFaces**(`mesh`): `number`[]
+▸ **calcEdgesIndicesFromNestedIndexedFaces**(`mesh`): `number`[]
 
 Returns the edges in the mesh data (without duplicates).
 Assumes mesh contains indexed faces.
@@ -82,9 +82,9 @@ Vertices are grouped into faces of any size: [[f01, f0b, f0c], [f1a, f1b, f1c, f
 
 ___
 
-### calcEdgeIndicesFromIndexedFaces
+### calcEdgesIndicesFromIndexedFaces
 
-▸ **calcEdgeIndicesFromIndexedFaces**(`mesh`): `number`[]
+▸ **calcEdgesIndicesFromIndexedFaces**(`mesh`): `number`[]
 
 Returns the edges in the mesh data (without duplicates).
 Assumes mesh contains indexed faces.
@@ -103,9 +103,9 @@ Assumes flat list of triangle faces: [f0a, f0b, f0c, f1a, f1b, f1c, ...]
 
 ___
 
-### calcEdgeIndicesFromNonIndexedFaces
+### calcEdgesIndicesFromNonIndexedFaces
 
-▸ **calcEdgeIndicesFromNonIndexedFaces**(`mesh`): `Uint32Array`
+▸ **calcEdgesIndicesFromNonIndexedFaces**(`mesh`): `Uint32Array`
 
 Returns the edges in the mesh data (without duplicates).
 Assumes mesh vertices are groups in sets of three to a face (triangle mesh).

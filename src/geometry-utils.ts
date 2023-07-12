@@ -27,7 +27,7 @@ export function calcBoundingBox(mesh: {
  * Assumes mesh contains indexed faces.
  * Vertices are grouped into faces of any size: [[f01, f0b, f0c], [f1a, f1b, f1c, f1d], ...]
  */
-export function calcEdgeIndicesFromNestedIndexedFaces(mesh: {
+export function calcEdgesIndicesFromNestedIndexedFaces(mesh: {
 	facesIndices: number[][];
 }) {
 	const { facesIndices } = mesh;
@@ -58,7 +58,7 @@ export function calcEdgeIndicesFromNestedIndexedFaces(mesh: {
  * Assumes mesh contains indexed faces.
  * Assumes flat list of triangle faces: [f0a, f0b, f0c, f1a, f1b, f1c, ...]
  */
-export function calcEdgeIndicesFromIndexedFaces(mesh: {
+export function calcEdgesIndicesFromIndexedFaces(mesh: {
 	facesIndices: Uint32Array | number[];
 }) {
 	const { facesIndices } = mesh;
@@ -86,7 +86,7 @@ export function calcEdgeIndicesFromIndexedFaces(mesh: {
  * Returns the edges in the mesh data (without duplicates).
  * Assumes mesh vertices are groups in sets of three to a face (triangle mesh).
  */
-export function calcEdgeIndicesFromNonIndexedFaces(mesh: {
+export function calcEdgesIndicesFromNonIndexedFaces(mesh: {
 	vertices: FloatArray;
 }) {
 	const { vertices } = mesh;
