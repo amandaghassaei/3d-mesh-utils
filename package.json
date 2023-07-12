@@ -33,7 +33,7 @@
     "url": "https://github.com/amandaghassaei/3d-mesh-utils/issues"
   },
   "devDependencies": {
-    "@amandaghassaei/stl-parser": "^1.6.0",
+    "@amandaghassaei/stl-parser": "^1.7.0",
     "@istanbuljs/esm-loader-hook": "^0.2.0",
     "@rollup/plugin-terser": "^0.4.3",
     "@rollup/plugin-typescript": "^10.0.1",
@@ -44,7 +44,7 @@
     "chai": "^4.3.7",
     "coverage-badge-creator": "^1.0.17",
     "mocha": "^10.1.0",
-    "msh-parser": "^1.2.10",
+    "msh-parser": "^1.5.0",
     "rollup": "^3.6.0",
     "rollup-plugin-delete": "^2.0.0",
     "rollup-plugin-dts": "^5.3.0",
